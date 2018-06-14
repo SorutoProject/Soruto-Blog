@@ -1,0 +1,9 @@
+body{
+    background:#fafafa;
+    color:#2c2c2c;    
+}
+h2,h3{
+    border-left:#aaaaaa 8px solid;
+    border-bottom:#aaaaaa 1px solid;
+    padding-left:5px;
+}
