@@ -5,12 +5,11 @@
  * (C)2018 Soruto Project
 */
 window.onload = function(){
-    pageLoad("article/menu.md");
-    alert("OK")
+    pageLoad("menu");
 }
-function pageLoad(url){
+function pageLoad(name){
  var xhr = new XMLHttpRequest();
-  xhr.open('GET', "articles/" + url + ".md", true);
+  xhr.open('GET', "articles/" + name + ".md", true);
   xhr.onreadystatechange = function(){
     // 本番用
     if (xhr.readyState === 4 && xhr.status === 200){
