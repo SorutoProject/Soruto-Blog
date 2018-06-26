@@ -1,9 +1,88 @@
 body{
-    background:#fafafa;
+    background:#4c4c4c;
     color:#2c2c2c;    
+}
+h1{
+    border-bottom:#aaaaaa 1px solid;
+    padding-left:5px;
 }
 h2,h3{
     border-left:#aaaaaa 8px solid;
     border-bottom:#aaaaaa 1px solid;
     padding-left:5px;
+}
+@media screen and (min-width:650px){
+#sorutoblog-menu-63108{
+	position:fixed;
+	width:100%;
+	height:60px;
+	top:0;
+	left:0;
+	z-index: 2;
+	box-shadow:4px 4px 10px #5c5c5c;
+	background:#eee;
+}
+	#sorutoblog-menu-63108 a{
+		color:#fafafa;
+		background:#3c3c3c;
+		padding-left:5px;
+		padding-right:8px;
+		border-radius:2px;
+		margin-left:5px;
+	}
+#sorutoblog-article-71536{
+	position:absolute;
+	width:90%;
+	top:70px;
+	left:0;
+	right: 0;
+	margin:auto;
+	background:#fafafa;
+	z-index: 1;
+	box-shadow:0px 0px 10px ;
+	overflow: auto;
+}
+#sorutoblog-loader-25317{
+	position:fixed;
+	width:50px;
+	height:50px;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+}
+}
+@media screen and (max-width:650px){
+#sorutoblog-menu-63108{
+	position:fixed;
+	width:100%;
+	height:60px;
+	top:0;
+	left:0;
+	z-index: 2;
+	box-shadow:4px 4px 10px #5c5c5c;
+	background:#eee;
+}
+#sorutoblog-article-71536{
+	position:absolute;
+	width:95%;
+	top:70px;
+	left:0;
+	right: 0;
+	margin:auto;
+	background:#fafafa;
+	z-index: 1;
+	box-shadow:0px 0px 10px ;
+}
+#sorutoblog-loader-25317{
+	position:fixed;
+	width:50px;
+	height:50px;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	margin:auto;
+}
 }
