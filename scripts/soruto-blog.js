@@ -2,6 +2,7 @@
  * Soruto Blog
  * A blog software in JavaScript.
  * Built with  marked.js
+ * Ver.0.6
  * (C)2018 Soruto Project
 */
 var ptitle;
