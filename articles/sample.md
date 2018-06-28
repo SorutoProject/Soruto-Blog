@@ -5,6 +5,6 @@
 Soruto Blog  
 A blog software in JavaScript. 
 
-Source on (GitHub)[https://github.com/SorutoProject/Soruto-Blog]
+Source on [GitHub](https://github.com/SorutoProject/Soruto-Blog)
 
 (C)2018 Soruto Project.
