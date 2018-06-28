@@ -10,7 +10,7 @@ JavaScriptで構築された、ブログソフトウェア。
 
 1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank">Release</a>ページから**最新版**をダウンロードします。  
 2.ダウンロードしたZIPもしくはtar.gzを展開します。  
-3.展開されたファイルをサーバーの任意のディレクトリに転送します。
+3.展開されたファイル(README.mdとLICENSEを除く)やディレクトリをサーバーの任意のディレクトリに転送します。
 
 ### 知っておいたほうが良いこと
 1.URLパラメータの値で記事のファイル名を指定します。  
