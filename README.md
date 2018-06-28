@@ -39,3 +39,9 @@ MarkDown(MD)の記述方法はネットに沢山情報がありますので、�
 
 MarkDownで書いた記事のファイルをarticleディレクトリに転送します。  
 それだけです。  
+
+### 仕様
+ * mdからHTMLへの変換は[**marked.js**](https://github.com/markedjs/marked)を使用して行っています。
+ 
+(c)2018 Soruto Project  
+This app is licensed under the MIT License.
