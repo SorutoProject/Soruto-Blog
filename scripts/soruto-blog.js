@@ -1,10 +1,12 @@
 /*
  * Soruto Blog
  * A blog software in JavaScript.
- * Built with jQuery and marked.js
+ * Built with  marked.js
  * (C)2018 Soruto Project
 */
+var ptitle;
 window.onload = function(){
+	ptitle = document.title;
 	//menuLoad();
 	var arg = new Object;
 	var pair=location.search.substring(1).split('&');
@@ -13,14 +15,15 @@ window.onload = function(){
     	arg[kv[0]]=kv[1];
 	}
 	if(arg.q){
-		pageLoad(arg.q);
+		pageLoad(arg.q,false);
 	}else{
     	pageLoad("home");
 	}
-	//delete load info
-	document.getElementById("sorutoblog-loader-25317").style.display = "none";
 }
-function pageLoad(name){
+function pageLoad(name,pushURL){
+	try{
+	//showload info
+	document.getElementById("sorutoblog-loader-25317").style.display = "block";
  var xhr = new XMLHttpRequest();
   xhr.open('GET', "articles/" + name + ".md", true);
   xhr.onreadystatechange = function(){
@@ -29,7 +32,7 @@ function pageLoad(name){
         setArticle(xhr.responseText);
     }
     else if (xhr.readyState === 4 && xhr.status === 404){
-        setArticleHTML("<h2>404 Not Found</h2>要求されたページは存在しません。")
+        setArticleHTML("<h2>404 Not Found</h2>要求されたページ\"" + name + "\"は存在しません。<br>URLを直接入力された場合は、URLが間違っていないか確認してください。<br><br>","404 Not Found")
     }
     // ローカルファイル用
     else if (xhr.readyState === 4 && xhr.status === 0){
@@ -37,6 +40,11 @@ function pageLoad(name){
     }
   };
   xhr.send(null);
+}catch(e){
+	setArticleHTML("<h2>エラーが発生しました</h2>記事をダウンロード中にエラーが発生したため、処理を中止しました。<br><br>","エラーが発生しました");
+	console.log(e);
+ 
+	}
 }
 function menuLoad(){
  var xhr = new XMLHttpRequest();
@@ -55,11 +63,17 @@ function menuLoad(){
 }
 function setArticle(md){
     var html = marked(md);
-    setArticleHTML(html);
+    var title = md.split("\n")[0].split("#").join("");
+    setArticleHTML(html,title);
 }
 function setMenuHTML(html){
     document.getElementById("sorutoblog-menu-63108").innerHTML = html;
 }
-function setArticleHTML(html){
+function setArticleHTML(html,title){
+	//delete load gif
+	window.setTimeout(function(){
+	document.getElementById("sorutoblog-loader-25317").style.display = "none";
+	},300);
     document.getElementById("sorutoblog-article-71536").innerHTML = html;
-    }
+    document.title = title + " - " + ptitle;
+}

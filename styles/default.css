@@ -1,15 +1,22 @@
 body{
     background:#4c4c4c;
-    color:#2c2c2c;    
+    color:#000;
+	font-family: 'ÉÅÉCÉäÉI', Meiryo,'Hiragino Kaku Gothic ProN','ÉqÉâÉMÉmäpÉS ProN W3',sans-serif;
 }
 h1{
     border-bottom:#aaaaaa 1px solid;
     padding-left:5px;
 }
 h2,h3{
-    border-left:#aaaaaa 8px solid;
-    border-bottom:#aaaaaa 1px solid;
+    border-left:#33c 8px solid;
+    border-bottom:#33c 1px solid;
     padding-left:5px;
+}
+#sorutoblog-loader-25317 img{
+	border-radius:50%;
+}
+#sorutoblog-article-71536{
+	padding-left:5px;
 }
 @media screen and (min-width:650px){
 #sorutoblog-menu-63108{
@@ -18,11 +25,12 @@ h2,h3{
 	height:60px;
 	top:0;
 	left:0;
-	z-index: 2;
-	box-shadow:4px 4px 10px #5c5c5c;
+	z-index: 3;
+	box-shadow:4px 0px 3px #5c5c5c;
 	background:#eee;
+	border-bottom:#aaa 1px solid;
 }
-	#sorutoblog-menu-63108 a{
+#sorutoblog-menu-63108 a{
 		color:#fafafa;
 		background:#3c3c3c;
 		padding-left:5px;
@@ -39,10 +47,22 @@ h2,h3{
 	margin:auto;
 	background:#fafafa;
 	z-index: 1;
-	box-shadow:0px 0px 10px ;
+	box-shadow:0px 0px 4px ;
 	overflow: auto;
 }
 #sorutoblog-loader-25317{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	margin:0;
+	background:rgba(0,0,0,0.6);
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+#sorutoblog-loader-gif{
 	position:fixed;
 	width:50px;
 	height:50px;
@@ -60,10 +80,18 @@ h2,h3{
 	height:60px;
 	top:0;
 	left:0;
-	z-index: 2;
-	box-shadow:4px 4px 10px #5c5c5c;
+	z-index: 3;
+	box-shadow:4px 0px 2px #5c5c5c;
 	background:#eee;
 }
+#sorutoblog-menu-63108 a{
+		color:#fafafa;
+		background:#3c3c3c;
+		padding-left:5px;
+		padding-right:8px;
+		border-radius:2px;
+		margin-left:5px;
+	}
 #sorutoblog-article-71536{
 	position:absolute;
 	width:95%;
@@ -73,9 +101,21 @@ h2,h3{
 	margin:auto;
 	background:#fafafa;
 	z-index: 1;
-	box-shadow:0px 0px 10px ;
+	box-shadow:0px 0px 4px ;
 }
 #sorutoblog-loader-25317{
+	position:fixed;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	margin:0;
+	background:rgba(0,0,0,0.6);
+	width:100%;
+	height:100%;
+	z-index:2;
+}
+#sorutoblog-loader-gif{
 	position:fixed;
 	width:50px;
 	height:50px;
