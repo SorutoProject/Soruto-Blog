@@ -8,7 +8,7 @@ JavaScriptで構築された、ブログソフトウェア。
 
 ### 導入(インストール)方法
 
-1.[Release](https://github.com/SorutoProject/Soruto-Blog/releases){:target="_blank"}ページから**最新版**をダウンロードします。  
+1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank">Release</a>ページから**最新版**をダウンロードします。  
 2.ダウンロードしたZIPもしくはtar.gzを展開します。  
 3.展開されたファイルをサーバーの任意のディレクトリに転送します。
 
@@ -41,7 +41,7 @@ MarkDownで書いた記事のファイルをarticleディレクトリに転送�
 それだけです。  
 
 ### 他のライブラリの使用について
- * mdからHTMLへの変換は[**marked.js**](https://github.com/markedjs/marked){:target="_blank"}を使用して行っています。
+ * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用して行っています。
  
 (c)2018 Soruto Project  
 This app is licensed under the MIT License.
