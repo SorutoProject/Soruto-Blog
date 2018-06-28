@@ -1,7 +1,11 @@
+/*
+  Soruto Blog CSS
+  自由に編集してOKですが、編集は自己責任でお願いします。
+*/
 body{
-    background:#4c4c4c;
-    color:#000;
-	font-family: '���C���I', Meiryo,'Hiragino Kaku Gothic ProN','�q���M�m�p�S ProN W3',sans-serif;
+  background:#4c4c4c;
+  color:#000;
+	font-family: 'CI', Meiryo,'Hiragino Kaku Gothic ProN','qMmpS ProN W3',sans-serif;
 }
 h1{
     border-bottom:#aaaaaa 1px solid;
@@ -12,6 +16,34 @@ h2,h3{
     border-bottom:#33c 1px solid;
     padding-left:5px;
 }
+/*表などのスタイル*/
+code{
+	display:block;
+	background:#eee;
+	width:99%;
+	border-radius:3px;
+	border:#ddd 1px solid;
+	padding-top:5px;
+	padding-left:5px;
+	padding-bottom: 5px;
+	overflow: auto;
+	
+}
+table {
+	border-collapse: collapse;
+}
+table th, table td {
+	border: 1px solid #999;
+}
+table tr:nth-child(even) {
+	background: #eee;
+}
+blockquote{
+	border-left: #ddd 5px solid;
+	padding-left:5px;
+	color:#777;
+}
+/*ここまで*/
 #sorutoblog-loader-25317 img{
 	border-radius:50%;
 }
