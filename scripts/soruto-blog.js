@@ -2,10 +2,21 @@
  * Soruto Blog
  * A blog software in JavaScript.
  * Built with  marked.js
- * Ver.0.6
  * (C)2018 Soruto Project
 */
 var ptitle;
+(function() {
+  if(config.highLight === true){
+  var renderer = new marked.Renderer()
+  renderer.code = function(code, language) {
+    return '<pre><code class="hljs">' + hljs.highlightAuto(code).value + '</code></pre>';
+  };
+  
+  marked.setOptions({
+    renderer: renderer,
+  });
+  }
+})();
 window.onload = function(){
 	ptitle = document.title;
 	//menuLoad();
@@ -16,12 +27,12 @@ window.onload = function(){
     	arg[kv[0]]=kv[1];
 	}
 	if(arg.q){
-		pageLoad(arg.q,false);
+		pageLoad(arg.q);
 	}else{
     	pageLoad("home");
 	}
 }
-function pageLoad(name,pushURL){
+function pageLoad(name){
 	try{
 	//showload info
 	document.getElementById("sorutoblog-loader-25317").style.display = "block";
@@ -40,6 +51,7 @@ function pageLoad(name,pushURL){
       setArticle(xhr.responseText);
     }
   };
+  xhr.overrideMimeType("text/markdown");
   xhr.send(null);
 }catch(e){
 	setArticleHTML("<h2>エラーが発生しました</h2>記事をダウンロード中にエラーが発生したため、処理を中止しました。<br><br>","エラーが発生しました");
@@ -63,7 +75,9 @@ function menuLoad(){
   xhr.send(null);
 }
 function setArticle(md){
-    var html = marked(md);
+    var html = marked(md,{
+		"headerIds":false
+	});
     var title = md.split("\n")[0].split("#").join("");
     setArticleHTML(html,title);
 }

@@ -5,7 +5,7 @@
 body{
   background:#4c4c4c;
   color:#000;
-	font-family: 'CI', Meiryo,'Hiragino Kaku Gothic ProN','qMmpS ProN W3',sans-serif;
+  font-family: 'メイリオ', Meiryo,'Hiragino Kaku Gothic ProN','ヒラギノ角ゴ ProN W3',sans-serif;
 }
 h1{
     border-bottom:#aaaaaa 1px solid;
@@ -18,12 +18,16 @@ h2,h3{
 }
 /*表などのスタイル*/
 code{
-	display:inline-block;
+	display:block;
 	background:#eee;
 	border-radius:3px;
 	border:#ddd 1px solid;
 	overflow: auto;
 	
+}
+.hljs{
+	margin-right:10px;
+	border-radius: 5px;
 }
 table {
 	border-collapse: collapse;
@@ -38,6 +42,37 @@ blockquote{
 	border-left: #ddd 5px solid;
 	padding-left:5px;
 	color:#777;
+}
+
+.info {
+    color: #3a87ad;
+    background-color: #d9edf7;
+    border: 1px solid #bce8f1;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 6px 10px;
+    border-radius: 0px;
+    margin: 1em 0px 1em;
+}
+.warn {
+    color: #c09853;
+    background-color: #fcf8e3;
+    border: 1px solid #fbeed5;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 6px 10px;
+    border-radius: 0px;
+    margin: 1em 0px 1em;
+}
+.alert {
+    color: #b94a48;
+    background-color: #f2dede;
+    border: 1px solid #eed3d7;
+    font-size: 13px;
+    line-height: 19px;
+    padding: 6px 10px;
+    border-radius: 0px;
+    margin: 1em 0px 1em;
 }
 /*ここまで*/
 #sorutoblog-loader-25317 img{
@@ -68,8 +103,9 @@ blockquote{
 	}
 #sorutoblog-article-71536{
 	position:absolute;
-	width:90%;
-	top:70px;
+	width:calc(100% - 30px);
+	height:calc(100% - 80px);
+	top:71px;
 	left:0;
 	right: 0;
 	margin:auto;
@@ -122,7 +158,8 @@ blockquote{
 	}
 #sorutoblog-article-71536{
 	position:absolute;
-	width:95%;
+	width:calc(100% - 20px);
+	height:calc(100% - 80px);
 	top:70px;
 	left:0;
 	right: 0;
@@ -130,6 +167,7 @@ blockquote{
 	background:#fafafa;
 	z-index: 1;
 	box-shadow:0px 0px 4px ;
+	overflow: auto;
 }
 #sorutoblog-loader-25317{
 	position:fixed;
