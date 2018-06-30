@@ -53,8 +53,8 @@ MarkDownで書いた記事のファイルをarticleディレクトリに転送�
 * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用しています。
 	* Copyright (c) 2011-2018, Christopher Jeffrey. (MIT License)
 	
-* ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。
-	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.
+* ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。  
+	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.(BSD License)
 	
 * 本ソフトウェアの著作権表示
 	* (c)2018 Soruto Project(MIT License)
