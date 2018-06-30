@@ -6,7 +6,7 @@ JavaScriptで構築された、ブログソフトウェア。
 * [知っておいたほうが良いこと](#知っておいたほうが良いこと)
 * [他の記事へのリンクの設置](#他の記事へのリンクの設置)
 * [記事のアップロード](#記事のアップロード)
-* [他のライブラリの使用について](#他のライブラリの使用について)
+* [著作権表示](#著作権表示)
 ### Soruto Blogの特徴
 * 記事はMarkdownで記述します。
 * JavaScriptで構築されているため、高速に記事を読み込みできます。
@@ -49,7 +49,7 @@ MarkDown(MD)の記述方法はネットに沢山情報がありますので、�
 MarkDownで書いた記事のファイルをarticleディレクトリに転送します。  
 それだけです。  
 
-### 他のライブラリの使用について
+### 著作権表示
 * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用しています。
 	* Copyright (c) 2011-2018, Christopher Jeffrey. (MIT License)
 	
