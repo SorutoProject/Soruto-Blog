@@ -56,5 +56,5 @@ MarkDownで書いた記事のファイルをarticleディレクトリに転送�
 * ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。
 	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.
 	
-*本ソフトウェアの著作権表示
-	*(c)2018 Soruto Project(MIT License)
+* 本ソフトウェアの著作権表示
+	* (c)2018 Soruto Project(MIT License)
