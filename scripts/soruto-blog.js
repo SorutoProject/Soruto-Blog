@@ -75,9 +75,7 @@ function menuLoad(){
   xhr.send(null);
 }
 function setArticle(md){
-    var html = marked(md,{
-		"headerIds":false
-	});
+    var html = marked(md);
     var title = md.split("\n")[0].split("#").join("");
     setArticleHTML(html,title);
 }
