@@ -19,7 +19,7 @@ JavaScriptで構築された、ブログソフトウェア。
 ### 導入(インストール)
 
 A.ダウンロードとサーバーへの転送
-1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank"_>Release</a>ページから**最新版**をダウンロードします。  
+1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank">Release</a>ページから**最新版**をダウンロードします。  
 
 2.ダウンロードしたZIPもしくはtar.gzを展開します。  
 
