@@ -44,8 +44,10 @@ window.onload = function(){
 	}
 	if(arg.q){
 		pageLoad(arg.q);
+    history.replaceState({page:arg.q},'','?q=' + arg.q);
 	}else{
     	pageLoad("home");
+      history.replaceState({page:"home"},'','?q=home');
 	}
 	if(config.backtoTopButton !== false){
 		document.getElementById("sorutoblog-backtop").onclick = new Function("backtoTop()");
@@ -61,7 +63,7 @@ window.onload = function(){
 	}
 }
 //ページがスクロールされたときの処理
-function pageLoad(name){
+function pageLoad(name,hash){
 	try{
 	//showload info
 	document.getElementById("sorutoblog-loader-25317").style.display = "block";
@@ -70,14 +72,14 @@ function pageLoad(name){
   xhr.onreadystatechange = function(){
     // 本番用
     if (xhr.readyState === 4 && xhr.status === 200){
-        setArticle(xhr.responseText);
+        setArticle(xhr.responseText,hash);
     }
     else if (xhr.readyState === 4 && xhr.status === 404){
-        setArticleHTML("<h2>404 Not Found</h2>要求されたページ\"" + name + "\"は存在しません。<br>URLを直接入力された場合は、URLが間違っていないか確認してください。<br><br>","404 Not Found")
+        setArticleHTML("<h2>404 Not Found</h2>要求されたページ\"" + name + "\"は存在しません。<br>URLを直接入力された場合は、URLが間違っていないか確認してください。<br><br>","404 Not Found",hash);
     }
     // ローカルファイル用
     else if (xhr.readyState === 4 && xhr.status === 0){
-      setArticle(xhr.responseText);
+      setArticle(xhr.responseText,hash);
     }
   };
   xhr.overrideMimeType("text/markdown");
@@ -87,7 +89,7 @@ function pageLoad(name){
   xhr.setRequestHeader('If-Modified-Since', 'Thu, 01 Jun 1970 00:00:00 GMT');
   xhr.send(null);
 }catch(e){
-	setArticleHTML("<h2>エラーが発生しました</h2>記事をダウンロード中にエラーが発生したため、処理を中止しました。<br><br>","エラーが発生しました");
+	setArticleHTML("<h2>エラーが発生しました</h2>記事をダウンロード中にエラーが発生したため、処理を中止しました。<br><br>","エラーが発生しました",hash);
 	console.log(e);
 
 	}
@@ -107,23 +109,36 @@ function menuLoad(){
   };
   xhr.send(null);
 }
-function setArticle(md){
+function setArticle(md,hash){
     var html = marked(md);
     var title = md.split("\n")[0].split("#").join("");
-    setArticleHTML(html,title);
+    setArticleHTML(html,title,hash);
 }
 function setMenuHTML(html){
     document.getElementById("sorutoblog-menu-63108").innerHTML = html;
 }
-function setArticleHTML(html,title){
+function setArticleHTML(html,title,hash){
     document.getElementById("sorutoblog-article-71536").innerHTML = html + "<br><br>";
     document.title = title + " - " + ptitle;
-	//URLにハッシュが設定されているときに、そこに飛ぶ
+
+    //config.jsで記事の非同期読み込みが有効になっているときの処理
+    if(config.async === true){
+      var links = document.getElementsByTagName('a');
+      for (var i = 0; i < links.length; i++) {
+        links[i].addEventListener('click',redirect,false);
+      }
+    }
+
+    //URLにハッシュが設定されているときに、そこに飛ぶ
 	  if(location.hash != ""){
       var hash = location.hash;
       location.hash = "";
       location.hash = hash;
   	}
+    //非同期読み込みでhashがあったとき
+    if(hash !== undefined){
+      location.hash = hash;
+    }
     //delete load gif
     window.setTimeout(function(){
     document.getElementById("sorutoblog-loader-25317").style.display = "none";
@@ -131,4 +146,36 @@ function setArticleHTML(html,title){
 }
 function backtoTop(){
 	scrollTo(0,0)
+}
+//非同期読み込みでの記事読み込み用(addEventListenerから指定)
+function redirect(ev){
+    var linkUrl = ev.target.href;
+    var target = ev.target.target;
+    var blogUrl = location.hostname + location.pathname;
+    var noneHash = location.href.split("#")[0];
+    var jumpPageNoneHash = ev.target.href.split("#")[0];
+    console.log(noneHash + "\n" + jumpPageNoneHash);
+    //リンクのtargetに_blankが指定されているとき
+    if(target == "_blank"){return false;}
+    //ハッシュ以外が一致するとき(ページ内移動)
+    if(noneHash == jumpPageNoneHash){return false;}
+    //ブログない記事のとき(リンクのパスがSoruto BlogのURLであるとき)
+    if(location.href.indexOf(blogUrl) != -1){
+      //デフォルトの処理を無効化
+      ev.preventDefault();
+      //linkUrlから記事ファイル名を取得
+      var articleId = linkUrl.split("?q=")[1].split("#")[0];
+      //linkUrlからハッシュを取得
+      var hash = linkUrl.split("#")[1];
+      pageLoad(articleId,hash);
+      history.pushState({page:articleId},null,"?q=" + articleId);
+      }
+}
+//非同期のとき、戻る・進むボタンを押したときの処理を定義
+window.onpopstate=function(e){
+  var articleId = e.state.page;
+  var hash = location.href.split("#")[1];
+  pageLoad(articleId,hash)
+//if (!e.originalEvent.state) return; // 初回アクセス時に再読み込みしてしまう対策
+
 }

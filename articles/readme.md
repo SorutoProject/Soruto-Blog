@@ -1,4 +1,4 @@
-# Soruto-Blog
+# Soruto Blog
 JavaScriptで構築された、ブログソフトウェア。
 ## 目次
 * [Soruto Blogの特徴](#soruto-blogの特徴)
@@ -117,11 +117,12 @@ MarkDownで書いた記事のファイルをarticleディレクトリに転送�
 
 ### 設定ファイルについて
 configディレクトリ内にある、config.jsは、Soruto Blogの挙動を設定できるファイルです。  
-デフォルト(Ver.1.0.2)現在では以下のようになっています。
+デフォルト(Ver.1.1.0)現在では以下のようになっています。
 ```
 var config = {
 	highLight:true,
-	backtoTopButton:500
+	backtoTopButton:500,
+	async:false
 };
 ```
 config変数内の値は、JSON形式で設定してください。
@@ -134,7 +135,8 @@ config変数内の値は、JSON形式で設定してください。
 |オプション|種類|デフォルト|説明|
 |---|---|---|---|
 |highLight|Boolean|true|シンタックスハイライトを有効にするか設定します。<br>値を`true`にすると、有効になります。|
-|backtoTopButton|number|500|どれくらいスクロールしたら記事の先頭へ<br>戻るボタンを表示するか設定します。<br>値を`false`にすると、非表示になります。|
+|backtoTopButton|Number|500|どれくらいスクロールしたら記事の先頭へ<br>戻るボタンを表示するか設定します。<br>値を`false`にすると、非表示になります。|
+|async|Boolean|false|ブログ内リンクをクリックしたときに非同期で読み込むかを設定します。<br>値を`true`にすると有効になります<br>※β版機能のため、バグが含まれる可能性があります|
 
 ---
 
