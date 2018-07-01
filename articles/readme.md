@@ -68,7 +68,7 @@ A.**ダウンロードとサーバーへの転送**
 ### 他の記事へのリンクの設置
 以下のようにすることで、Soruto Blogに投稿した他の記事へのリンクを設置できます。
 
-`[サンプルリンク](?q=(articleディレクトリに投稿した記事のファイル名(**拡張子なし**))`  
+`[サンプルリンク](?q=(articlesディレクトリに投稿した記事のファイル名(**拡張子なし**))`  
 
 例 (記事のファイル名はsample.md)
 
@@ -103,7 +103,7 @@ MDエディタの上にあるファイル名入力ボックスにファイル名
 5.**ダウンロードした記事をアップロードする**
 
 ダウンロードした記事ファイルを、  
-Soruto Blogのインストールフォルダにある、「article」フォルダに転送します。
+Soruto Blogのインストールフォルダにある、「articles」フォルダに転送します。
 
 これで完了です。
 
@@ -112,7 +112,7 @@ Soruto Blogのインストールフォルダにある、「article」フォル�
 MarkDown(MD)の記述方法はネットに沢山情報がありますので、ここでは割愛します。
 
 
-MarkDownで書いた記事のファイルをarticleディレクトリに転送します。  
+MarkDownで書いた記事のファイルをarticlesディレクトリに転送します。  
 それだけです。  
 
 ### 設定ファイルについて
@@ -147,8 +147,8 @@ config変数内の値は、JSON形式で設定してください。
 * ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。  
 	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.(BSD License)
 
-* Soruto Blog 管理ツールのMDエディタには、<a href="http://codemirror.net/">**CodeMirror**</a>を使用しています
+* Soruto Blog 管理ツールのMDエディタには、<a href="http://codemirror.net/" target="_blank">**CodeMirror**</a>を使用しています
 	* Copyright (C) 2017 by Marijn Haverbeke <marijnh@gmail.com> and others(MIT License)
-	
+
 * 本ソフトウェアの著作権表示
 	* Copyright (c) 2018 Soruto Project(MIT License)
