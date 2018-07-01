@@ -18,9 +18,39 @@ JavaScriptで構築された、ブログソフトウェア。
 
 ### 導入(インストール)
 
-1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank">Release</a>ページから**最新版**をダウンロードします。  
+A.ダウンロードとサーバーへの転送
+1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank"_>Release</a>ページから**最新版**をダウンロードします。  
+
 2.ダウンロードしたZIPもしくはtar.gzを展開します。  
+
 3.展開されたファイル(README.mdとLICENSEを除く)やディレクトリをサーバーの任意のディレクトリに転送します。
+
+B.ブログ名の設定  
+4.サーバーのSoruto Blogを転送したフォルダにある *index.html* を開きます。  
+
+5.index.htmlの3行目にある
+
+```
+<title>Soruto Blog</title>
+```
+
+を自分のブログ名に変更します。  
+	例えば、ブログ名を **Soruto Blog 公式ブログ** にしたい場合は、
+
+```
+<title>Soruto Blog 公式ブログ</title>
+```
+
+とします。
+
+6.index.htmlの14行目にある
+```
+<b>Soruto Blog</b>
+```
+
+を手順5のように書き換えます。
+
+以上で導入は完了です。
 
 ### URLパラメータ
 1.URLパラメータの値で記事のファイル名(拡張子なし)を指定します。  
@@ -111,9 +141,9 @@ config変数内の値は、JSON形式で設定してください。
 ### 著作権表示
 * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用しています。
 	* Copyright (c) 2011-2018, Christopher Jeffrey. (MIT License)
-	
+
 * ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。  
 	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.(BSD License)
-	
+
 * 本ソフトウェアの著作権表示
 	* (c)2018 Soruto Project(MIT License)
