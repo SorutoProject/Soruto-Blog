@@ -56,7 +56,7 @@ A.**ダウンロードとサーバーへの転送**
 1.URLパラメータの値で記事のファイル名(拡張子なし)を指定します。  
 `(導入したSoruto BlogのURL)?q=ファイル名(拡張子なし)`  
 例:  
-`https://sorutoproject.github.io/Soruto-Blog/?=sample`
+`https://sorutoproject.github.io/Soruto-Blog/q?=sample`
 
 2.URLパラメーターが設定されていないときは、  
 `?q=home`
