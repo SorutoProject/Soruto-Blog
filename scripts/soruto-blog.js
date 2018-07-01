@@ -151,16 +151,18 @@ function backtoTop(){
 function redirect(ev){
     var linkUrl = ev.target.href;
     var target = ev.target.target;
-    var blogUrl = location.hostname + location.pathname;
+    var blogFilePath = location.href.split("?")[0];
     var noneHash = location.href.split("#")[0];
     var jumpPageNoneHash = ev.target.href.split("#")[0];
+    var linkPath = linkUrl.split("?")[0];
     console.log(noneHash + "\n" + jumpPageNoneHash);
+    console.log(blogFilePath + "\n" + linkPath);
     //リンクのtargetに_blankが指定されているとき
     if(target == "_blank"){return false;}
     //ハッシュ以外が一致するとき(ページ内移動)
     if(noneHash == jumpPageNoneHash){return false;}
     //ブログない記事のとき(リンクのパスがSoruto BlogのURLであるとき)
-    if(location.href.indexOf(blogUrl) != -1){
+    if(blogFilePath == linkPath){
       //デフォルトの処理を無効化
       ev.preventDefault();
       //linkUrlから記事ファイル名を取得
@@ -173,9 +175,10 @@ function redirect(ev){
 }
 //非同期のとき、戻る・進むボタンを押したときの処理を定義
 window.onpopstate=function(e){
+  try{
   var articleId = e.state.page;
   var hash = location.href.split("#")[1];
   pageLoad(articleId,hash)
 //if (!e.originalEvent.state) return; // 初回アクセス時に再読み込みしてしまう対策
-
+}catch(e){}
 }
