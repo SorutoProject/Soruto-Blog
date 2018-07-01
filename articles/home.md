@@ -1,7 +1,7 @@
 # Soruto Blog
 JavaScriptで作られたブログソフトウェア。  
 ソースコードは以下のURLからダウンロードできます。  
-[https://github.com/SorutoProject/Soruto-Blog]
+<https://github.com/SorutoProject/Soruto-Blog>
 
 ## サンプル記事
 
