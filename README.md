@@ -18,14 +18,14 @@ JavaScriptで構築された、ブログソフトウェア。
 
 ### 導入(インストール)
 
-A.ダウンロードとサーバーへの転送
+A.**ダウンロードとサーバーへの転送**  
 1.<a href="https://github.com/SorutoProject/Soruto-Blog/releases" target="_blank">Release</a>ページから**最新版**をダウンロードします。  
 
 2.ダウンロードしたZIPもしくはtar.gzを展開します。  
 
 3.展開されたファイル(README.mdとLICENSEを除く)やディレクトリをサーバーの任意のディレクトリに転送します。
 
-B.ブログ名の設定  
+**B.ブログ名の設定**  
 4.サーバーのSoruto Blogを転送したフォルダにある *index.html* を開きます。  
 
 5.index.htmlの3行目にある
