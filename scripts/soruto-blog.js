@@ -131,9 +131,9 @@ function setArticleHTML(html,title,hash){
 
     //URLにハッシュが設定されているときに、そこに飛ぶ
 	  if(location.hash != ""){
-      var hash = location.hash;
+      var pageHash = location.hash;
       location.hash = "";
-      location.hash = hash;
+      location.hash = pagehash;
   	}
     //非同期読み込みでhashがあったとき
     if(hash !== undefined){
