@@ -7,6 +7,7 @@ JavaScriptで構築された、ブログソフトウェア。
 * [他の記事へのリンクの設置](#他の記事へのリンクの設置)
 * [記事の作成](#記事の作成)
 * [記事のアップロード](#記事のアップロード)
+* [設定ファイルについて](#設定ファイルについて)
 * [著作権表示](#著作権表示)
 ### Soruto Blogの特徴
 * 記事はMarkdownで記述します。
@@ -89,7 +90,7 @@ configディレクトリ内にある、config.jsは、Soruto Blogの挙動を設
 ```
 var config = {
 	highLight:true
-}
+};
 ```
 config変数内の値は、JSON形式で設定してください。
 
@@ -102,6 +103,7 @@ config変数内の値は、JSON形式で設定してください。
 |---|---|---|---|
 |highLight|Boolean|true|シンタックスハイライトを有効にするか設定します。<br>値をtrueにすると、有効になります。|
 
+---
 
 ### 著作権表示
 * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用しています。
