@@ -4,19 +4,35 @@
  * Built with  marked.js
  * (C)2018 Soruto Project
 */
+
+//config は先にconfig.jsを読み込んで定義済み
+
 var ptitle;
+//marked.jsの設定
 (function() {
+var renderer = new marked.Renderer()
   if(config.highLight === true){
-  var renderer = new marked.Renderer()
+  //シンタックスハイライトを有効にする
   renderer.code = function(code, language) {
     return '<pre><code class="hljs">' + hljs.highlightAuto(code).value + '</code></pre>';
   };
-  
-  marked.setOptions({
-    renderer: renderer,
-  });
   }
+//見出しにhashをつける(半角スペースは-に、()は消す)
+renderer.heading = function (text, level) {
+  var escapedText = text.toLowerCase().replace(" ","-").replace("(","").replace(")","");
+
+  return '<h' + level + '><a name="' +
+                escapedText +
+                 '" class="anchor" href="#' +
+                 escapedText +
+                 '"><span class="header-link"></span></a>' +
+                  text + '</h' + level + '>';
+}
+marked.setOptions({
+  renderer: renderer,
+});
 })();
+//ページ読み込み時の処理
 window.onload = function(){
 	ptitle = document.title;
 	//menuLoad();
@@ -31,7 +47,20 @@ window.onload = function(){
 	}else{
     	pageLoad("home");
 	}
+	if(config.backtoTopButton !== false){
+		document.getElementById("sorutoblog-backtop").onclick = new Function("backtoTop()");
+		document.getElementById("sorutoblog-article-71536").onscroll = function(){
+		//指定した数字以上にスクロールしたときにページトップに戻るボタンを出す
+		var scroll = this.scrollTop;
+			if(scroll >= config.backtoTopButton){
+				document.getElementById("sorutoblog-backtop").style.display = "block";
+			}else{
+				document.getElementById("sorutoblog-backtop").style.display = "none";
+			}
+		}
+	}
 }
+//ページがスクロールされたときの処理
 function pageLoad(name){
 	try{
 	//showload info
@@ -89,4 +118,11 @@ function setArticleHTML(html,title){
 	},300);
     document.getElementById("sorutoblog-article-71536").innerHTML = html;
     document.title = title + " - " + ptitle;
+	//URLにハッシュが設定されているときに、そこに飛ぶ
+	if(location.hash != ""){
+		location.hash = location.hash;
+	}
+}
+function backtoTop(){
+	document.getElementById("sorutoblog-article-71536").scrollTo(0,0)
 }

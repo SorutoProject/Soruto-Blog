@@ -48,16 +48,26 @@ body{
   width:calc(100% - 20px);
   height:300px;
   border:#fafafa 1px solid;
+  display: none;
 }
 .CodeMirror{
   font-family: meiryo;
   font-size:11pt;
 }
-#filename{
-  width:20em;
-}
 #makercore{
   position: absolute;
-  top:40px;
+  top:60px;
   width:100%;
+  height: 650px;
+  overflow:auto;
+}
+#makeui{
+  position: absolute;
+  left:0;
+  top:0px;
+  width:100%;
+  height:40px;
+}
+input{
+  font-size:9pt;
 }

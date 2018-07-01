@@ -11,11 +11,11 @@
 	<body>
 	<!--メニューを定義-->
 	<div id="menu"><b>Soruto Blog 管理ツール</b><br>
-	<a href="../" class="menuLink">ブログトップに戻る</a>&nbsp;<a href="#" class="menuLink" onclick="setPage('home');">ホーム</a>&nbsp;<a href="#" class="menuLink" onclick="setPage('make');">記事を作成する</a></div>
+	<a href="../" class="menuLink">←ブログトップ</a>&nbsp;<a href="#" class="menuLink" onclick="setPage('home');">ホーム</a>&nbsp;<a href="#" class="menuLink" onclick="setPage('make');">記事を作成</a></div>
 	<!--各設定ページを定義-->
 		<div id="home" class="page">
 			<b>Soruto Blog 管理ツール</b><br>
-			<a href="#" onclick="setPage('make');">記事を作成する</a>
+			<a href="#" onclick="setPage('make');">記事を作成</a>
 		</div>
 
 	<div id="make" class="page">
@@ -24,7 +24,9 @@
 		プレビュー(CSSはデフォルトのものが適用されます)<br>
 		<iframe id="view"></iframe>
 		</div>
-		<input type="button" id="downloadButton" value="記事をダウンロード" onclick="download();"> <input type="text" id="filename" placeholder="ファイル名を入力(拡張子不要)"><input type="button" onclick="genFilename();" value="日時からファイル名を生成">
+		<div id="makeui">
+		<input type="button" id="downloadButton" value="保存" onclick="download();"> <input type="text" id="filename" placeholder="ファイル名を入力(拡張子不要)"><input type="button" onclick="genFilename();" value="ファイル名を生成">
+		</div>
 	</div>
 		<!--読み込むスクリプトを定義-->
 		<script src="scripts/codemirror.js"></script>

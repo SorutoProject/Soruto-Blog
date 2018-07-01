@@ -135,3 +135,10 @@ blockquote{
 	right:0;
 	margin:auto;
 }
+#sorutoblog-backtop{
+	position:fixed;
+	z-index:3;
+	bottom:10px;
+	right:40px;
+	display: none;
+}

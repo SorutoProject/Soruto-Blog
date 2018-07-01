@@ -1,6 +1,7 @@
-## Soruto Blog
+# Soruto Blog
 JavaScriptで作られたブログソフトウェア。
-### Recent
+## Recent
 
+[りーどみー](?q=readme)  
 [表示のテスト](?q=test)  
 [Sample](?q=sample)

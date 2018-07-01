@@ -1,3 +1,4 @@
 var config = {
-	highLight:true
-}
+	highLight:true,
+	backtoTopButton:500
+};

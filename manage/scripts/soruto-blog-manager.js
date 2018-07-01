@@ -14,9 +14,11 @@ function setPage(s){
 	if(s == "home"){
 		document.getElementById("home").style.zIndex = "2";
 		document.getElementById("make").style.zIndex = "1";
+		document.getElementById("view").style.display = "none";
 	}else if(s == "make"){
 		document.getElementById("home").style.xIndex = "1";
 		document.getElementById("make").style.zIndex = "2";
+		document.getElementById("view").style.display = "block";
 	}
 }
 function viewArticle(){
@@ -27,7 +29,7 @@ function viewArticle(){
 	});
 	var viewcode = html.split("<a").join("<u");
 	viewcode = viewcode.split("</a>").join("</u>");//リンクを置き換え(404エラー対策)
-    document.getElementById("view").contentWindow.document.body.innerHTML = '<style>code,table tr:nth-child(even){background:#eee}#sorutoblog-article-71536,blockquote,h1,h2,h3{padding-left:5px}body{background:#4c4c4c;color:#000;font-family:\'メイリオ\',Meiryo,\'Hiragino Kaku Gothic ProN\',\'ヒラギノ角ゴ ProN W3\',sans-serif}h1{border-bottom:#aaa 1px solid}h2,h3{border-left:#33c 8px solid;border-bottom:#33c 1px solid}code{display:inline-block;border-radius:3px;border:1px solid #ddd;overflow:auto}table{border-collapse:collapse}table td,table th{border:1px solid #999}blockquote{border-left:#ddd 5px solid;color:#777}@media screen and (min-width:650px){#sorutoblog-article-71536{position:absolute;width:90%;top:5px;left:0;right:0;margin:auto;background:#fafafa;z-index:1;box-shadow:0 0 4px;overflow:auto}}@media screen and (max-width:650px){#sorutoblog-article-71536{position:absolute;width:95%;top:5px;left:0;right:0;margin:auto;background:#fafafa;z-index:1;box-shadow:0 0 4px}}</style><div id="sorutoblog-article-71536">'+viewcode + "</div>";
+    document.getElementById("view").contentWindow.document.body.innerHTML = '<style>body{background:#4c4c4c;color:#000;font-family:\'メイリオ\',Meiryo,\'Hiragino Kaku Gothic ProN\',\'ヒラギノ角ゴ ProN W3\',sans-serif}h1{border-bottom:#aaa 1px solid;padding-left:5px}h2,h3{border-left:#33c 8px solid;border-bottom:#33c 1px solid;padding-left:5px}code{display:inline-block;background:#eee;border-radius:3px;border:#ddd 1px solid;overflow:auto}table{border-collapse:collapse}table th,table td{border:1px solid #999}table tr:nth-child(even){background:#eee}blockquote{border-left:#ddd 5px solid;padding-left:5px;color:#777}.info{color:#3a87ad;background-color:#d9edf7;border:1px solid #bce8f1;font-size:13px;line-height:19px;padding:6px 10px;border-radius:0;margin:1em 0 1em}.warn{color:#c09853;background-color:#fcf8e3;border:1px solid #fbeed5;font-size:13px;line-height:19px;padding:6px 10px;border-radius:0;margin:1em 0 1em}.alert{color:#b94a48;background-color:#f2dede;border:1px solid #eed3d7;font-size:13px;line-height:19px;padding:6px 10px;border-radius:0;margin:1em 0 1em}#sorutoblog-loader-25317 img{border-radius:50%}#sorutoblog-article-71536{position:absolute;width:100%;height:100%;);top:0px;left:0;right:0;margin:auto;background:#fafafa;z-index:1;box-shadow:0 0 4px;overflow:auto}#sorutoblog-article-71536>*{margin-left:5px}</style><div id="sorutoblog-article-71536">'+viewcode + "</div>";
 }
 function download(){
 codeMirrorElement.save();
