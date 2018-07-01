@@ -49,9 +49,9 @@ window.onload = function(){
 	}
 	if(config.backtoTopButton !== false){
 		document.getElementById("sorutoblog-backtop").onclick = new Function("backtoTop()");
-		document.getElementById("sorutoblog-article-71536").onscroll = function(){
+		window.onscroll = function(){
 		//指定した数字以上にスクロールしたときにページトップに戻るボタンを出す
-		var scroll = this.scrollTop;
+		var scroll = document.documentElement.scrollTop || document.body.scrollTop;  // IE、Firefox、Opera||Chrome、Safari
 			if(scroll >= config.backtoTopButton){
 				document.getElementById("sorutoblog-backtop").style.display = "block";
 			}else{
@@ -120,7 +120,7 @@ function setArticleHTML(html,title){
 	window.setTimeout(function(){
 	document.getElementById("sorutoblog-loader-25317").style.display = "none";
 	},300);
-    document.getElementById("sorutoblog-article-71536").innerHTML = html;
+    document.getElementById("sorutoblog-article-71536").innerHTML = html + "<br><br>";
     document.title = title + " - " + ptitle;
 	//URLにハッシュが設定されているときに、そこに飛ぶ
 	if(location.hash != ""){
@@ -128,5 +128,5 @@ function setArticleHTML(html,title){
 	}
 }
 function backtoTop(){
-	document.getElementById("sorutoblog-article-71536").scrollTo(0,0)
+	scrollTo(0,0)
 }
