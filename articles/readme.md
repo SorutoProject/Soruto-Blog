@@ -147,5 +147,8 @@ config変数内の値は、JSON形式で設定してください。
 * ソースコードのハイライト表示には<a href="http://highlightjs.org/" target="_blank">**highlight.js**</a>を使用しています。  
 	* Copyright (c) 2006, Ivan Sagalaev All rights reserved.(BSD License)
 
+* Soruto Blog 管理ツールのMDエディタには、<a href="http://codemirror.net/">**CodeMirror**</a>を使用しています
+	* Copyright (C) 2017 by Marijn Haverbeke <marijnh@gmail.com> and others(MIT License)
+	
 * 本ソフトウェアの著作権表示
-	* (c)2018 Soruto Project(MIT License)
+	* Copyright (c) 2018 Soruto Project(MIT License)
