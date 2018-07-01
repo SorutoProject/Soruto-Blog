@@ -1,6 +1,6 @@
 # Soruto Blog
-JavaScriptで作られたブログソフトウェア。
-ソースコードは以下のURLからダウンロードできます。
+JavaScriptで作られたブログソフトウェア。  
+ソースコードは以下のURLからダウンロードできます。  
 [https://github.com/SorutoProject/Soruto-Blog]
 
 ## サンプル記事
