@@ -44,10 +44,15 @@ window.onload = function(){
 	}
 	if(arg.q){
 		pageLoad(arg.q);
+    //非同期表示が有効のとき、戻るボタンが正しく動作するように設定
+    if(config.async === true){
     history.replaceState({page:arg.q},'','?q=' + arg.q);
+    }
 	}else{
-    	pageLoad("home");
-      history.replaceState({page:"home"},'','?q=home');
+    pageLoad("home");
+    if(config.async === true){
+    history.replaceState({page:"home"},'','?q=home');
+  }
 	}
 	if(config.backtoTopButton !== false){
 		document.getElementById("sorutoblog-backtop").onclick = new Function("backtoTop()");
@@ -131,12 +136,12 @@ function setArticleHTML(html,title,hash){
 
     //URLにハッシュが設定されているときに、そこに飛ぶ
 	  if(location.hash != ""){
-      var pageHash = location.hash;
+      var pageHash = location.hash;//変数名がhashだと重複するのでpageHashに変更
       location.hash = "";
-      location.hash = pagehash;
+      location.hash = pageHash;
   	}
     //非同期読み込みでhashがあったとき
-    if(hash !== undefined){
+    if(hash !== undefined && config.async === true){
       location.hash = hash;
     }
     //delete load gif
@@ -155,8 +160,6 @@ function redirect(ev){
     var noneHash = location.href.split("#")[0];
     var jumpPageNoneHash = ev.target.href.split("#")[0];
     var linkPath = linkUrl.split("?")[0];
-    console.log(noneHash + "\n" + jumpPageNoneHash);
-    console.log(blogFilePath + "\n" + linkPath);
     //リンクのtargetに_blankが指定されているとき
     if(target == "_blank"){return false;}
     //ハッシュ以外が一致するとき(ページ内移動)
@@ -171,14 +174,14 @@ function redirect(ev){
       var hash = linkUrl.split("#")[1];
       pageLoad(articleId,hash);
       history.pushState({page:articleId},null,"?q=" + articleId);
+      //非同期のとき、戻る・進むボタンを押したときの処理を定義
+      window.onpopstate=function(e){
+        try{
+        var articleId = e.state.page;
+        var hash = location.href.split("#")[1];
+        pageLoad(articleId,hash)
+      //if (!e.originalEvent.state) return; // 初回アクセス時に再読み込みしてしまう対策
+      }catch(e){}
       }
-}
-//非同期のとき、戻る・進むボタンを押したときの処理を定義
-window.onpopstate=function(e){
-  try{
-  var articleId = e.state.page;
-  var hash = location.href.split("#")[1];
-  pageLoad(articleId,hash)
-//if (!e.originalEvent.state) return; // 初回アクセス時に再読み込みしてしまう対策
-}catch(e){}
+      }
 }
