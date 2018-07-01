@@ -116,16 +116,18 @@ function setMenuHTML(html){
     document.getElementById("sorutoblog-menu-63108").innerHTML = html;
 }
 function setArticleHTML(html,title){
-	//delete load gif
-	window.setTimeout(function(){
-	document.getElementById("sorutoblog-loader-25317").style.display = "none";
-	},300);
     document.getElementById("sorutoblog-article-71536").innerHTML = html + "<br><br>";
     document.title = title + " - " + ptitle;
 	//URLにハッシュが設定されているときに、そこに飛ぶ
-	if(location.hash != ""){
-		location.hash = location.hash;
-	}
+	  if(location.hash != ""){
+      var hash = location.hash;
+      location.hash = "";
+      location.hash = hash;
+  	}
+    //delete load gif
+    window.setTimeout(function(){
+    document.getElementById("sorutoblog-loader-25317").style.display = "none";
+    },300);
 }
 function backtoTop(){
 	scrollTo(0,0)
