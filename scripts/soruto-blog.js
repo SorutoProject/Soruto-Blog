@@ -81,11 +81,15 @@ function pageLoad(name){
     }
   };
   xhr.overrideMimeType("text/markdown");
+  //キャッシュを無効化
+  xhr.setRequestHeader('Pragma', 'no-cache');
+  xhr.setRequestHeader('Cache-Control', 'no-cache');
+  xhr.setRequestHeader('If-Modified-Since', 'Thu, 01 Jun 1970 00:00:00 GMT');
   xhr.send(null);
 }catch(e){
 	setArticleHTML("<h2>エラーが発生しました</h2>記事をダウンロード中にエラーが発生したため、処理を中止しました。<br><br>","エラーが発生しました");
 	console.log(e);
- 
+
 	}
 }
 function menuLoad(){
