@@ -83,6 +83,26 @@ MarkDown(MD)の記述方法はネットに沢山情報がありますので、�
 MarkDownで書いた記事のファイルをarticleディレクトリに転送します。  
 それだけです。  
 
+### 設定ファイルについて
+configディレクトリ内にある、config.jsは、Soruto Blogの挙動を設定できるファイルです。  
+デフォルト(Ver.1.0.0)現在では以下のようになっています。
+```
+var config = {
+	highLight:true
+}
+```
+config変数内の値は、JSON形式で設定してください。
+
+なお、config.jsに、文法上のエラーがあると、**Soruto Blogが動作しなくなり可能性**がありますので、  
+変更するときは注意してください。
+
+**オプション一覧**
+
+|オプション|種類|初期設定|説明|
+|---|---|---|---|
+|highLight|Boolean|true|シンタックスハイライトを有効にするか設定します。<br>値をtrueにすると、有効になります。|
+
+
 ### 著作権表示
 * mdからHTMLへの変換は<a href="https://github.com/markedjs/marked" target="_blank">**marked.js**</a>を使用しています。
 	* Copyright (c) 2011-2018, Christopher Jeffrey. (MIT License)
