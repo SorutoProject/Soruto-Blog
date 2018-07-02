@@ -46,12 +46,12 @@ window.onload = function(){
 		pageLoad(arg.q);
     //非同期表示が有効のとき、戻るボタンが正しく動作するように設定
     if(config.async === true){
-    history.replaceState({page:arg.q},'','?q=' + arg.q);
+    history.replaceState({page:arg.q},'','?q=' + arg.q + location.hash);
     }
 	}else{
     pageLoad("home");
     if(config.async === true){
-    history.replaceState({page:"home"},'','?q=home');
+    history.replaceState({page:"home"},'','?q=home' + location.hash);
   }
 	}
 	if(config.backtoTopButton !== false){
@@ -136,13 +136,30 @@ function setArticleHTML(html,title,hash){
 
     //URLにハッシュが設定されているときに、そこに飛ぶ
 	  if(location.hash != ""){
-      var pageHash = location.hash;//変数名がhashだと重複するのでpageHashに変更
-      location.hash = "";
-      location.hash = pageHash;
-  	}
+	  try{
+	  scrollTo(0,0)
+      var pageHash = decodeURI(location.hash.split("#")[1]);//変数名がhashだと重複するのでpageHashに変更
+      var topicElem = document.getElementsByName( pageHash );
+      var rect = topicElem[0].getBoundingClientRect();
+      console.log(rect.top - 40);
+      scrollTo(rect.top - 40,rect.top - 40);
+		}catch(e){
+			console.log("nameを検索中にエラーが発生しました");
+			}
+      }
     //非同期読み込みでhashがあったとき
     if(hash !== undefined && config.async === true){
-      location.hash = hash;
+	  try{
+		scrollTo(0,0)
+		var pageHash = decodeURI(hash);//変数名がhashだと重複するのでpageHashに変更
+		var topicElem = document.getElementsByName( pageHash );
+		var rect = topicElem[0].getBoundingClientRect();
+		console.log(rect.top - 40);
+		scrollTo(rect.top - 40,rect.top - 40);
+		history.replaceState('','',"#" + pageHash);
+		}catch(e){
+				console.log("nameを検索中にエラーが発生しました")
+		}
     }
     //delete load gif
     window.setTimeout(function(){
