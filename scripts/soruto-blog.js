@@ -146,9 +146,8 @@ function setArticleHTML(html,title,hash){
 	  scrollTo(0,0)
       var pageHash = decodeURI(location.hash.split("#")[1]);//変数名がhashだと重複するのでpageHashに変更
       var topicElem = document.getElementsByName( pageHash );
-      var rect = topicElem[0].getBoundingClientRect();
-      console.log(rect.top - 40);
-      scrollTo(rect.top - 40,rect.top - 40);
+      var rect = topicElem[0].parentNode.getBoundingClientRect();
+      scrollTo(rect.top,rect.top);
 		}catch(e){
 			console.log("nameを検索中にエラーが発生しました");
 			}
@@ -159,9 +158,8 @@ function setArticleHTML(html,title,hash){
 		scrollTo(0,0)
 		var pageHash = decodeURI(hash);//変数名がhashだと重複するのでpageHashに変更
 		var topicElem = document.getElementsByName( pageHash );
-		var rect = topicElem[0].getBoundingClientRect();
-		console.log(rect.top - 40);
-		scrollTo(rect.top - 40,rect.top - 40);
+		var rect = topicElem[0].parentNode.getBoundingClientRect();
+		scrollTo(rect.top,rect.top);
 		history.replaceState('','',"#" + pageHash);
 		}catch(e){
 				console.log("nameを検索中にエラーが発生しました")
