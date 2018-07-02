@@ -123,7 +123,7 @@ var config = {
 	highLight:true,
 	backtoTopButton:500,
 	async:false,
-	publish:false
+	publish:true
 };
 ```
 config変数内の値は、JSON形式で設定してください。
@@ -138,7 +138,7 @@ config変数内の値は、JSON形式で設定してください。
 |highLight|Boolean|true|シンタックスハイライトを有効にするか設定します。<br>値を`true`にすると、有効になります。|
 |backtoTopButton|Number|500|どれくらいスクロールしたら記事の先頭へ<br>戻るボタンを表示するか設定します。<br>値を`false`にすると、非表示になります。|
 |async|Boolean|false|ブログ内リンクをクリックしたときに非同期で読み込むかを設定します。<br>値を`true`にすると有効になります<br>※β版機能のため、バグが含まれる可能性があります|
-|publish|Boolean|false|このオプションを`false`にすると、ブログは非公開モードになります。<br>非公開モードでは、一切記事を閲覧できなくなるので、<br>ブログを非公開にしたい時以外は`true`にしておいてください。|
+|publish|Boolean|true|このオプションを`false`にすると、ブログは非公開モードになります。<br>非公開モードでは、一切記事を閲覧できなくなるので、<br>ブログを非公開にしたい時以外は`true`にしておいてください。|
 
 ---
 
