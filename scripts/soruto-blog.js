@@ -46,12 +46,12 @@ window.onload = function(){
 		pageLoad(arg.q);
     //非同期表示が有効のとき、戻るボタンが正しく動作するように設定
     if(config.async === true){
-    history.replaceState({page:arg.q},'','?q=' + arg.q);
+    history.replaceState({page:arg.q},'','?q=' + arg.q + location.hash);
     }
 	}else{
     pageLoad("home");
     if(config.async === true){
-    history.replaceState({page:"home"},'','?q=home');
+    history.replaceState({page:"home"},'','?q=home' + location.hash);
   }
 	}
 	if(config.backtoTopButton !== false){
@@ -67,16 +67,22 @@ window.onload = function(){
 		}
 	}
 }
-//ページがスクロールされたときの処理
 function pageLoad(name,hash){
 	try{
-	//showload info
-	document.getElementById("sorutoblog-loader-25317").style.display = "block";
- var xhr = new XMLHttpRequest();
-  xhr.open('GET', "articles/" + name + ".md", true);
-  xhr.onreadystatechange = function(){
-    // 本番用
-    if (xhr.readyState === 4 && xhr.status === 200){
+		//showload info
+		document.getElementById("sorutoblog-loader-25317").style.display = "block";
+	
+		//config.jsでブログを非公開にしている時の処理
+		if(config.publish === false){
+					setArticle("## 非公開に設定されています  \n現在、このブログは非公開に設定されているため、閲覧できません。",hash);
+					return false;
+		}
+		//通常の処理
+		var xhr = new XMLHttpRequest();
+		xhr.open('GET', "articles/" + name + ".md", true);
+		xhr.onreadystatechange = function(){
+		// 本番用
+		if (xhr.readyState === 4 && xhr.status === 200){
         setArticle(xhr.responseText,hash);
     }
     else if (xhr.readyState === 4 && xhr.status === 404){
@@ -126,8 +132,8 @@ function setArticleHTML(html,title,hash){
     document.getElementById("sorutoblog-article-71536").innerHTML = html + "<br><br>";
     document.title = title + " - " + ptitle;
 
-    //config.jsで記事の非同期読み込みが有効になっているときの処理
-    if(config.async === true){
+    //config.jsで記事の非同期読み込みが有効になっているときの処理(リンクを非同期対応にする)
+    if(config.async === true && config.publish !== false){
       var links = document.getElementsByTagName('a');
       for (var i = 0; i < links.length; i++) {
         links[i].addEventListener('click',redirect,false);
@@ -136,13 +142,30 @@ function setArticleHTML(html,title,hash){
 
     //URLにハッシュが設定されているときに、そこに飛ぶ
 	  if(location.hash != ""){
-      var pageHash = location.hash;//変数名がhashだと重複するのでpageHashに変更
-      location.hash = "";
-      location.hash = pageHash;
-  	}
+	  try{
+	  scrollTo(0,0)
+      var pageHash = decodeURI(location.hash.split("#")[1]);//変数名がhashだと重複するのでpageHashに変更
+      var topicElem = document.getElementsByName( pageHash );
+      var rect = topicElem[0].getBoundingClientRect();
+      console.log(rect.top - 40);
+      scrollTo(rect.top - 40,rect.top - 40);
+		}catch(e){
+			console.log("nameを検索中にエラーが発生しました");
+			}
+      }
     //非同期読み込みでhashがあったとき
     if(hash !== undefined && config.async === true){
-      location.hash = hash;
+	  try{
+		scrollTo(0,0)
+		var pageHash = decodeURI(hash);//変数名がhashだと重複するのでpageHashに変更
+		var topicElem = document.getElementsByName( pageHash );
+		var rect = topicElem[0].getBoundingClientRect();
+		console.log(rect.top - 40);
+		scrollTo(rect.top - 40,rect.top - 40);
+		history.replaceState('','',"#" + pageHash);
+		}catch(e){
+				console.log("nameを検索中にエラーが発生しました")
+		}
     }
     //delete load gif
     window.setTimeout(function(){
